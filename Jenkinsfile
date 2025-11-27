@@ -2,35 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+
+        stage('Cloner repository') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Yves-ANAGUE/site-ci-cd-jenkins.git'
+                git branch: 'main', url: 'https://github.com/Yves-ANAGUE/site-ci-cd-jenkins.git'
             }
         }
 
-        stage('Clean deploy folder') {
+        stage('Nettoyer dossier actuel') {
             steps {
                 sh 'rm -rf /var/www/site/*'
             }
         }
 
-        stage('Deploy website') {
+        stage('Déployer site sur Nginx') {
             steps {
-                sh '''
-                  cp -r * /var/www/site/
-                  chown -R 1000:1000 /var/www/site || true
-                '''
+                sh 'cp -r * /var/www/site/'
             }
-        }
-    }
-
-    post {
-        success {
-            echo "🚀 Déploiement réussi !"
-        }
-        failure {
-            echo "❌ Erreur lors du déploiement"
         }
     }
 }
