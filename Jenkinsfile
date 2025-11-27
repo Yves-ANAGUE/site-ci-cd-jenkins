@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/TON_USER/TON_REPO.git'
+                    url: 'https://github.com/Yves-ANAGUE/site-ci-cd-jenkins.git'
             }
         }
 
