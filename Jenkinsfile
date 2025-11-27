@@ -3,21 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Cloner repository') {
+        stage('Cloner le dépôt') {
             steps {
-                git branch: 'main', url: 'https://github.com/Yves-ANAGUE/site-ci-cd-jenkins.git'
+                git branch: 'main',
+                    url: 'https://github.com/Yves-ANAGUE/site-ci-cd-jenkins'
             }
         }
 
-        stage('Nettoyer dossier actuel') {
+        stage('Déployer sur Nginx') {
             steps {
-                sh 'rm -rf /var/www/site/*'
-            }
-        }
-
-        stage('Déployer site sur Nginx') {
-            steps {
-                sh 'cp -r * /var/www/site/'
+                sh '''
+                rm -rf /var/www/site/*
+                cp -r * /var/www/site/
+                '''
             }
         }
     }
