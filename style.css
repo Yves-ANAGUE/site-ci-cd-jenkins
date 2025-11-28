@@ -1,4 +1,4 @@
-/* Import Google Font */
+/* j importe Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -15,7 +15,7 @@ body {
   flex-direction: column;
 }
 
-/* Glass Navigation Bar */
+/* ma barre de navigation */
 nav {
   display: flex;
   justify-content: center;
@@ -42,7 +42,7 @@ nav a:hover {
   background: rgba(255,255,255,0.1);
 }
 
-/* Page container */
+/* le css de ma page */
 .container {
   width: 90%;
   max-width: 900px;
